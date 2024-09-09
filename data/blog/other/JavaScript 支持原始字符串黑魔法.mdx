@@ -1,0 +1,17 @@
+---
+title: 'JavaScript 支持原始字符串黑魔法'
+date: '2024-09-09'
+tags: ['tech', 'JavaScript']
+draft: false
+summary: 'JavaScript Raw String'
+authors: ['default']
+---
+
+一直以为 JavaScript 本身不支持原始字符串概念，也就是说没有类似 Python 的 r"..." 或 C# 的 @"..." 这样的语法来直接禁用转义字符，所以一直都是用 Python 来处理带转义字符的源数据。
+偶然发现可以通过 [String.raw](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/raw) 标签模板实现：
+
+``` Javascript
+const str = String.raw`{"a": "a=\"123\""}`
+console.log(str)
+```
+感慨基础之浅薄，连 ES6 时代就有的特性，居然现在才知道。
